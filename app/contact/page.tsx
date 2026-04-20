@@ -460,7 +460,7 @@ export default function ContactPage() {
                     href="mailto:hello@sensorytics.com" 
                     className="text-primary hover:underline"
                   >
-                    middleeast@sensorytics.com
+                    asif@sensorytics.com
                   </a>
                 </div>
                 

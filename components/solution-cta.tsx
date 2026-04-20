@@ -247,7 +247,7 @@ export function SolutionCTA({
                 <span className="font-medium text-foreground">Office Hours:</span><br />
                 Monday – Friday, 9am – 6pm MYT<br /><br />
                 <span className="font-medium text-foreground">ASEAN HQ:</span> Labuan, Malaysia<br />
-                <span className="font-medium text-foreground">Middle East:</span> middleeast@sensorytics.com
+                <span className="font-medium text-foreground">Middle East:</span> asif@sensorytics.com
               </p>
             </div>
           </div>

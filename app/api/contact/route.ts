@@ -46,12 +46,14 @@ export async function POST(req: NextRequest) {
     parsed.data
 
   const to = process.env.QUOTE_EMAIL_TO ?? "hello@sensorytics.com"
+  const relayMode = process.env.SMTP_RELAY_MODE === "true"
   const host = process.env.SMTP_HOST ?? "smtp.office365.com"
   const port = Number(process.env.SMTP_PORT ?? "587")
   const user = process.env.SMTP_USER
   const pass = process.env.SMTP_PASS
+  const from = process.env.SMTP_FROM ?? user ?? "hello@sensorytics.com"
 
-  if (!user || !pass) {
+  if (!relayMode && (!user || !pass)) {
     return NextResponse.json(
       { error: "Server email is not configured (SMTP_USER / SMTP_PASS)." },
       { status: 503 },
@@ -73,17 +75,23 @@ export async function POST(req: NextRequest) {
     message || "—",
   ].join("\n")
 
-  const transporter = nodemailer.createTransport({
+  const transporterConfig = {
     host,
     port,
     secure: port === 465,
-    requireTLS: port === 587,
-    auth: { user, pass },
-  })
+    ...(relayMode
+      ? {}
+      : {
+          requireTLS: port === 587,
+          auth: { user: user as string, pass: pass as string },
+        }),
+  }
+
+  const transporter = nodemailer.createTransport(transporterConfig)
 
   try {
     await transporter.sendMail({
-      from: user,
+      from,
       to,
       replyTo: email,
       subject: `Website contact: ${company} — ${name}`,

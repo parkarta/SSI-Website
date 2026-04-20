@@ -69,6 +69,7 @@ export async function POST(req: NextRequest) {
   const transporterConfig = {
     host,
     port,
+    family: 4 as const,
     secure: port === 465,
     ...(relayMode
       ? {}

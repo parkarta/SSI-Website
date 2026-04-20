@@ -7,31 +7,31 @@ const solutions = [
     icon: Snowflake,
     title: "Cold Chain Monitoring",
     description: "Comprehensive monitoring for walk-ins, freezers, and chillers with real-time alerts.",
-    link: "#"
+    link: "/solutions/cold-chain-monitoring"
   },
   {
     icon: Pill,
     title: "Pharmaceutical Storage",
     description: "GDP-compliant vaccine and drug monitoring with complete audit trails.",
-    link: "#"
+    link: "/solutions/pharmaceutical"
   },
   {
     icon: Ship,
     title: "Maritime & Vessel",
     description: "Remote sensor monitoring for shipping containers across global routes.",
-    link: "#"
+    link: "/solutions/maritime"
   },
   {
     icon: Warehouse,
     title: "Warehouse & Distribution",
     description: "Large-scale multi-sensor deployments for distribution centers.",
-    link: "#"
+    link: "/solutions/warehouse"
   },
   {
     icon: Store,
     title: "Retail Frozen Food",
     description: "Shelf and display case monitoring to ensure product quality at point of sale.",
-    link: "#"
+    link: "/solutions/retail"
   },
 ]
 
